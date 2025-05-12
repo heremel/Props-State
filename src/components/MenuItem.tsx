@@ -8,6 +8,9 @@ interface MenuItemProps {
 function MenuItem({ foodItem }: MenuItemProps) {
 	const [isFavorite, setIsFavorite] = useState(foodItem.isFavorite);
 	//create a state isFavorite that has the inital value of isFavorite that comes from the props
+	function handleClickFavorite(){
+		setIsFavorite(!isFavorite)
+	}
 
 	return (
 		<section className="itemContainer">
@@ -19,7 +22,7 @@ function MenuItem({ foodItem }: MenuItemProps) {
 				</figcaption>
 			</figure>
 			<aside>{foodItem.price} EUR</aside>
-			<button onClick={() => setIsFavorite(!isFavorite)} type="button">
+			<button onClick={handleClickFavorite} type="button">
 				{isFavorite ? "❤️" : "🖤"}
 			</button>
 		</section>
